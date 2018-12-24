@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './shared/api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'podbuddy';
+  pods:any = [];
+
+  constructor(public api:ApiService) { }
+
+  ngOnInit() {
+    this.getPods();
+  }
+
+  getPods() {
+    this.pods = [];
+    this.api.getPods().subscribe((data: {}) => {
+      console.log(data);
+      this.pods = data;
+    });
+  }
 }
