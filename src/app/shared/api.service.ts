@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 const searchString = 'tom+segura+joey+diaz'
-const endpoint = 'https://listennotes.p.mashape.com/api/v1/search?language=English&len_min=2&offset=0&q='+ searchString + '&sort_by_date=0';
 const httpOptions = {
   headers: new HttpHeaders({
     'X-Mashape-Key': '0px2cbD9RLmshLtIBZqgWZQiDvWCp1KsuKAjsnksI7YJcFH7xn',
@@ -19,12 +18,12 @@ export class ApiService {
 
   }
   private extractData(res: Response) {
-    let body = res;
+    const body = res;
     console.log(body);
     return body || { };
   }
-  getPods(): Observable<any> {
-    return this.http.get(endpoint + 'pods', httpOptions).pipe(
+  getPods(search: string): Observable<any> {
+      return this.http.get('https://listennotes.p.mashape.com/api/v1/search?language=English&len_min=2&offset=0&q='+ search + '&sort_by_date=0' , httpOptions).pipe(
       map(this.extractData));
 
   }

@@ -1,0 +1,37 @@
+<mat-toolbar color="accent">
+  <!-- This fills the remaining space of the current row -->
+
+  <mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList  aria-orientation="vertical">
+      <input placeholder="Search Term"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)">
+
+
+    </mat-chip-list>
+
+
+  </mat-form-field>
+  </mat-toolbar>
+  <mat-toolbar color="accent">
+    <mat-chip *ngFor="let term of terms" [selectable]="selectable"
+    [removable]="removable" (removed)="remove(term)">
+{{term.word}}
+<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+</mat-chip>
+  </mat-toolbar>
+<mat-list>
+  <mat-list-item  color ="accent" *ngFor="let pod of pods">
+    <img mat-list-avatar src={{pod.thumbnail}} alt="Desc 1">
+    <h3 mat-line>{{pod.title_original}}</h3>
+    <p mat-line>
+      <span>{{pod.description_original}}</span>
+    </p>
+    <p mat-line>
+        <button mat-button color="accent" >Audio Link</button>
+      </p>
+  </mat-list-item>
+
+</mat-list>
