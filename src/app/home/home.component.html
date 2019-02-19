@@ -18,7 +18,7 @@
   <mat-toolbar color="accent">
     <mat-chip *ngFor="let term of terms" [selectable]="selectable"
     [removable]="removable" (removed)="remove(term)">
-{{term.word}}
+{{term}}
 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
 </mat-chip>
   </mat-toolbar>

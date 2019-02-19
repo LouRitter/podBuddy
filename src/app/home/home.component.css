@@ -25,6 +25,9 @@ mat-list{
     color: antiquewhite;
 
 }
+mat-toolbar{
+  padding-top: 20px;
+}
 
 .mat-list-avatar{
   width: 50px !important;

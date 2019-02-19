@@ -20,18 +20,16 @@ export class HomeComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  terms: Term[] = [
-
-  ];
+  terms: string[] = [];
   constructor(public api: ApiService) { }
 
   ngOnInit() {
-    this.getPods();
+    this.getPods('Joe Rogan');
   }
 
-  getPods() {
+  getPods(name: string) {
     this.pods = [];
-    this.api.getPods('joe+rogan').subscribe((data: any) => {
+    this.api.getPods(name).subscribe((data: any) => {
       console.log(data.results);
       this.pods = data.results;
     });
@@ -43,15 +41,18 @@ export class HomeComponent implements OnInit {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.terms.push({word: value.trim()});
+      this.terms.push( value);
     }
 
     // Reset the input value
     if (input) {
       input.value = '';
     }
+    const search = this.terms.toLocaleString();
+    console.log(JSON.stringify(this.terms));
+    this.getPods(search);
   }
-  remove(term: Term): void {
+  remove(term: string): void {
     const index = this.terms.indexOf(term);
 
     if (index >= 0) {

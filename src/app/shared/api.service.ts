@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-const searchString = 'tom+segura+joey+diaz'
 const httpOptions = {
   headers: new HttpHeaders({
     'X-Mashape-Key': '0px2cbD9RLmshLtIBZqgWZQiDvWCp1KsuKAjsnksI7YJcFH7xn',
