@@ -1,5 +1,7 @@
+
 <mat-toolbar color="accent">
   <!-- This fills the remaining space of the current row -->
+  <img src="assets/podlogo.png" width="100px" style="padding: 0px 20px 0px 0px; margin-top: 40px" />
 
   <mat-form-field class="example-chip-list">
     <mat-chip-list #chipList  aria-orientation="vertical">
@@ -15,7 +17,7 @@
 
   </mat-form-field>
   </mat-toolbar>
-  <mat-toolbar color="accent">
+  <mat-toolbar style="padding-left: 130px" color="accent">
     <mat-chip *ngFor="let term of terms" [selectable]="selectable"
     [removable]="removable" (removed)="remove(term)">
 {{term}}

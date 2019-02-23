@@ -1,8 +1,12 @@
 html, body, app-root, .app-frame {
     overflow: hidden;
     margin: 0;
-    height: 100%;
+    height: auto;
     box-sizing: border-box;
     color: #e0e0e0;
     background-color: #333;
+}
+
+mat-sidenav-container{
+  background-color: #333;
 }
